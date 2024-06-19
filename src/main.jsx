@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+
+
+//We have used context-api for state management as the project is small,
+//We can't use redux or something else for small projects.
+export const Context = createContext({ isAuthenticated: false });
+
+const AppWrapper = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState({});
+
+  return (
+    <Context.Provider value={{isAuthenticated, setIsAuthenticated,user, setUser}} >
+      <App />
+    </Context.Provider>
+
+  );
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <AppWrapper />
   </React.StrictMode>,
 )
