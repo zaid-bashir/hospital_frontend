@@ -4,7 +4,7 @@ const Hero = ({ title, imageUrl }) => {
     return (
         <div className="hero container" >
             <div className="banner">
-                <h1>{title}</h1>
+                <h1 style={{paddingTop: 150,}} >{title}</h1>
                 <p>
                     {`Zaid's Medical Institute is a state-of-the-art facility dedicated
                     to providing comprehensive healthcare services with compassion and

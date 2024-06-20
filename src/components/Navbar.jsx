@@ -7,7 +7,7 @@ import { Context } from "../main";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const {isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const handleLogout = async () => {
     await axios
@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const navigateTo = useNavigate();
 
-  const goToLogin = () => {
+  const goToLogin = async () => {
     navigateTo("/login");
   };
 
@@ -40,11 +40,14 @@ const Navbar = () => {
             <Link to={"/"} onClick={() => setShow(!show)}>
               Home
             </Link>
-            <Link to={"/appointment"} onClick={() => setShow(!show)}>
+            <Link to={"/appointments"} onClick={() => setShow(!show)}>
               Appointment
             </Link>
-            <Link to={"/about"} onClick={() => setShow(!show)}>
+            <Link to={"/aboutus"} onClick={() => setShow(!show)}>
               About Us
+            </Link>
+            <Link to={"/api/v1"} onClick={() => setShow(!show)}>
+              APIs
             </Link>
           </div>
           {isAuthenticated ? (
